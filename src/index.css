@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+.gradient {
+  min-height: 100vh;
+  background: linear-gradient(
+    270deg,
+    #020617,
+    #0f172a,
+    #1e293b,
+    #020617
+  );
+  background-size: 600% 600%;
+  animation: gradientMove 9s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.footer {
+  text-align: center;
+  font-size: 14px;
+  font-family:cursive ;
+  padding: 5px;
+}
+
+
+
+
