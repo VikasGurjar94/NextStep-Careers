@@ -5,18 +5,20 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-reac
 
 const Header = () => {
   return (
-    <div>
-        <nav className=' border-2 h-20 w-full flex justify-between items-center px-10  '>
-            <Link>
-                <img className='h-50 mt-5 border-2 ' src="/images/logo.png" alt="logo" />
-            </Link>
+    <div className='w-full' >
+      <nav className='  relative h-20 w-full flex justify-between items-center px-10  '>
+        <Link to={'/'} >
+          <img className='h-20 ' src="/images/logo.png" alt="logo" />
+        </Link>
 
-            
-                 <button className='bg-[#182543] h-10 w-25 rounded-2xl cursor-pointer hover:outline-2 outline-blue-400 hover:scale-105 text-2xl tracking-wider '> 
-                   Login
-                </button>
-            
-        </nav>
+
+        <button className='bg-[#4d5d85] h-10 w-25 rounded-xl cursor-pointer hover:outline-2 outline-blue-400 hover:scale-99 text-2xl tracking-tight '>
+          Login
+        </button>
+
+
+      </nav>
+
     </div>
   )
 }

@@ -1,14 +1,14 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-
-import Home from './components/Home'
+import Header from './components/Header'
+import Home from './components/home'
 import Onboarding from './pages/Onboarding'
 import JobListings from './pages/JobListings'
 import PostJob from './pages/PostJob'
 import Saved from './pages/Saved'
 import MyJobs from './pages/MyJobs'
 // import JobPage from './pages/JobPage'
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+// import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
 
 
@@ -17,9 +17,9 @@ const App = () => {
     <div>
       <div className='gradient '>
         <main className='min-h-screen  text-white container '>
-          
+          {/* <Header/> */}
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Home />} /> 
             <Route path='/jobs' element={<JobListings />} />
             <Route path='/onboarding' element={<Onboarding />} />
             {/* <Route path='/job/:id' element={<JobPage />} /> */}
