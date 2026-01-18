@@ -1,5 +1,5 @@
 import React from 'react'
-import companyCarouselData from './companyCarouselData'
+import companyCarouselData from './data/companyCarouselData'
 
 const Carousel = () => {
   return (

@@ -12,7 +12,7 @@ const Home = () => {
     <div className=' flex justify-center items-center flex-col w-full h-full ' >
       <Header />
       <main className='flex flex-col px-20 py-5 gap-10   '>
-        {/* <section className='text-center  flex flex-col items-center justify-center gap-10  mt-45 '>
+        <section className='text-center  flex flex-col items-center justify-center gap-10  mt-45 '>
           <h1 className='capitalize relative  text-[6vw]  flex flex-col items-center justify-center  text-clip   tracking-tighter font-bold leading-20 ' >find your dream job
             <span className=' flex'>
               <h1 className='inline'>with</h1>
@@ -40,7 +40,7 @@ const Home = () => {
         </section>
 
         <section className='flex flex-col justify-center items-center' >
-          <img className='h-screen' src="/images/banner.png" alt='banner_image' />
+          <img className='h-screen my-20  ' src="/images/banner.png" alt='banner_image' />
           <div className=' w-full mt-20 gap-20 flex justify-between items-center ' >
             <div className='border-2 bg-[#020617] w-1/2 rounded-xl px-8 py-5 border-slate-500 '>
               <h1 className='text-3xl capitalize font-semibold font-mono tracking-tight  ' >for job seekers</h1> <br />
@@ -51,11 +51,11 @@ const Home = () => {
               <h3 className='text-xl  '>Post jobs, manage applications, and find the best candidates.</h3>
             </div>
           </div>
-        </section> */}
-         
-         {/* accordion */}
+        </section>
+
+        {/* accordion */}
         <section>
-          <Accordion/>
+          <Accordion />
         </section>
 
       </main>

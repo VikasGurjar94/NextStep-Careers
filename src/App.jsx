@@ -28,11 +28,13 @@ const App = () => {
             <Route path='/my-jobs' element={<MyJobs />} />
           </Routes>
         </main>
+
+        <footer className="footer h-[10vh] flex justify-center items-center mt-15 text-white bg-gray-800">
+        Made with <span className='text-[#ec4899] text-[15px] align-baseline '> ❤ </span> by Vikas Gurjar  
+      </footer>
       </div>
 
-      <footer className="footer text-white bg-gray-800">
-        Made with <span className='text-[#ec4899] text-[15px] align-baseline '>❤</span> by Vikas Gurjar  
-      </footer>
+      
      
     </div>
   )
