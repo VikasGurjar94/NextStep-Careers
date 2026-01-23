@@ -39,7 +39,6 @@ const Header = () => {
           {/* <SignInButton />
            */}
         <button onClick={()=> {
-          console.log(showSignIn);
           setShowSignIn(true)
         }} className='bg-[#4d5d85] h-10 w-25 rounded-xl cursor-pointer hover:outline-2 outline-blue-400 hover:scale-99 text-2xl tracking-tight '>
           Login 

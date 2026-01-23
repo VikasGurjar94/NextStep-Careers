@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div className=' flex justify-center items-center flex-col w-full h-full ' >
-      <Header />
+      
       <main className='flex flex-col px-20 py-5 gap-10   '>
         <section className='text-center  flex flex-col items-center justify-center gap-10  mt-45 '>
           <h1 className='capitalize relative  text-[6vw]  flex flex-col items-center justify-center  text-clip   tracking-tighter font-bold leading-20 ' >find your dream job

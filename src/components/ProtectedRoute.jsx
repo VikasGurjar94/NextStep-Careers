@@ -11,12 +11,6 @@ const ProtectedRoute = ({children}) => {
     if(isLoaded && !isSignedIn && isSignedIn !== undefined){
         return <Navigate to={"/?sign-in=true"} />
     }
-//       if (
-//     user !== undefined &&
-//     !user?.unsafeMetadata?.role &&
-//     pathname !== "/onboarding"
-//   )
-//     return <Navigate to="/onboarding" />;
 
   return children
 }
