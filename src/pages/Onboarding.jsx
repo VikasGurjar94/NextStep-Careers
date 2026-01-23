@@ -11,7 +11,7 @@ const Onboarding = () => {
 
   useEffect(() => {
     const roleCheck = user?.unsafeMetadata?.role;
-    if (!roleCheck) {
+    if (roleCheck) {
       navigate(roleCheck === "candidate" ? "/jobs" : "/post-job")
     }
   }, [user])
@@ -27,10 +27,6 @@ const Onboarding = () => {
   if (!isLoaded) {
     return <BarLoader className='mb-4' width={"100%"} color='#36d7b7' />
   }
-
-  
- 
-
 
   return (
     <div className='w-full h-ful flex flex-col  mt-60 justify-center items-center  ' >

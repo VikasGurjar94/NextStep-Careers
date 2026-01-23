@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
 import { Link , useParams, useSearchParams } from 'react-router-dom'
 import { useState } from 'react';
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from '@clerk/clerk-react';
 import { SignIn } from '@clerk/clerk-react';
 import { BriefcaseBusiness, Heart} from "lucide-react";
 
+
 const Header = () => {
+
+  const {user} = useUser() ;
 
     const [search , setSearch] = useSearchParams();
 
@@ -47,9 +50,9 @@ const Header = () => {
         </SignedOut>
         <SignedIn>
           {/* add a condition for only to show this to recruter */}
-          <Link to={'/post-job'}>
+          { user?.unsafeMetadata?.role === "recruiter" && <Link to={'/post-job'}>
           <button className='  hover:scale-101 cursor-pointer hover:ring-2 ring-white  bg-red-500  font-semibold tracking-tighter h-8 w-20 text-base rounded-2xl '>Post Job</button>
-          </Link>
+          </Link>}
           
             <UserButton
               appearance={{
