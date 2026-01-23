@@ -43,7 +43,7 @@ const accordion = () => {
                 // }
               }
             } className='w-full py-5  flex flex-col  justify-around   px-5 rounded-2xl border-b ' key={item.id}>
-            <p className=' flex w-full justify-between cursor-pointer  ' >
+            <div className=' flex w-full justify-between cursor-pointer  ' >
              <p className='font-semibold w-full hover:underline '>
                {item.question}
              </p>
@@ -51,7 +51,7 @@ const accordion = () => {
               <span className='text-right' >
                   {(count.find((c) => (c === item.id))) ? ("-") : ("+")}
               </span>
-            </p> 
+            </div> 
             <p className='' >
               {(count.find((c) => (c === item.id))) && (item.answer)}
             </p>
