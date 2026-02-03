@@ -26,6 +26,7 @@ const useFetch =  (callBackFunction , options = {}) => {
         } catch (error) {
             setError(error) ;
         } finally{
+            
             setLoading(false)
         }
 

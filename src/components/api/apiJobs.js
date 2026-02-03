@@ -17,10 +17,12 @@ export async function getJobs(token, { location, company_id, search_query }) {
     }
 
     const { data, error } = await query;
+
     if (error) {
         console.log("Error in fetching jobs : ", error);
         return null;
     }
+    
     return data;
 }
 

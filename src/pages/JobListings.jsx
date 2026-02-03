@@ -6,6 +6,7 @@ import { BarLoader } from 'react-spinners'
 import JobCard from '../components/JobCard'
 import { getCompanies } from '../components/api/apiCompanies'
 import { State } from 'country-state-city'
+import companyCarouselData from '../components/data/companyCarouselData'
 
 
 const JobListings = () => {
@@ -31,6 +32,21 @@ const JobListings = () => {
     loading: loadingJobs,
     fn: fnJobs } = useFetch(getJobs, { location, company_id, search_query })
 
+    const handleSearch = (e) => {
+      e.preventDefault();
+      let formData = new FormData(e.target);
+  
+      let query = formData.get("search-query")
+      if (query) setSearchQuery(query)
+      
+    }
+
+   function clearFilter(){
+    setCompany_id("")
+    setLocation("") 
+    setSearchQuery("")
+    }
+
 
   useEffect(() => {
     if (isLoaded) fnJobs()
@@ -40,14 +56,7 @@ const JobListings = () => {
     return <BarLoader className='mb-4' width={"100%"} color='#36d7b7' />
   }
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    let formData = new FormData(e.target);
-
-    let query = formData.get("search-query")
-    if (query) setSearchQuery(query)
-    console.log(query)
-  }
+  
 
   return (
     <div className='mx-20' >
@@ -66,16 +75,16 @@ const JobListings = () => {
         </button>
       </form>
 
-      <div>
+      <div className='flex justify-between  ' >
         <select
           name="filter"
           value={location}
           onChange={(event) => setLocation(event.target.value)}
-          className="border-3 bg-black py-2 h-full rounded-sm px-4 text-md border-white/20"
+          className="border-3 bg-black cursor-pointer py-2 h-full rounded-sm px-4 text-md border-white/20"
         >
           {/* Placeholder */}
           <option className='text-md/90' value="" disabled>
-            Search by state
+            Filter by state
           </option>
           {
             State.getStatesOfCountry("IN").map(({ name }) => {
@@ -83,6 +92,29 @@ const JobListings = () => {
             })
           }
         </select>
+
+        <select
+          name="filter"
+          value={company_id}
+          onChange={(event) => setCompany_id(event.target.value)}
+          className="border-3 bg-black cursor-pointer py-2 h-full rounded-sm px-4 text-md border-white/20"
+        >
+          {/* Placeholder */}
+          <option className='text-md/90' value="" disabled>
+            Filter by company
+          </option>
+          {
+            companies?.map(({ name , id }) => {
+              return <option key={name} value={id}>{name}</option>
+            })
+          }
+        </select>
+
+        <button
+        onClick={clearFilter}
+        className="border-3  cursor-pointer bg-red-700 py-2 h-full rounded-sm px-4 text-md border-white/20">
+          Clear all filters
+        </button>
       </div>
 
       {loadingJobs &&
@@ -90,7 +122,7 @@ const JobListings = () => {
       }
       {
         loadingJobs === false && (
-          <div className='  py-5 rounded-sm mt-10 ' >
+          <div className='py-5 rounded-sm mt-10 ' >
             {jobs?.length ? (
               jobs.map((job) => {
                 return <JobCard

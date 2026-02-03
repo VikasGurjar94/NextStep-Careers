@@ -10,31 +10,30 @@ const JobCard = ({ job,
   savedInit = false,
   onJobAction = () => { },
   isMyJob = false,
-
 }) => {
 
-  const [saved , setSaved] = useState(savedInit)
+  const [saved, setSaved] = useState(savedInit)
   const {
     error: errorSavedJob,
     data: savedJob,
     loading: loadingSavedJob,
-    fn: fnSavedJob } = useFetch(saveJob,{
-      alreadySaved : saved,
+    fn: fnSavedJob } = useFetch(saveJob, {
+      alreadySaved: saved,
     })
 
-    const {user} = useUser()
+  const { user } = useUser()
 
-    useEffect(()=>{
-      if(savedJob!== undefined) setSaved(savedJob?.length > 0) ;
-    },[savedJob])
- 
-     async function handleSaveJob(){
-      await fnSavedJob ( {
-        user_id : user.id , 
-        job_id : job.id
-      })
-      onSavedJob() ;
-    }
+  useEffect(() => {
+    if (savedJob !== undefined) setSaved(savedJob?.length > 0);
+  }, [savedJob])
+
+  async function handleSaveJob() {
+    await fnSavedJob({
+      user_id: user.id,
+      job_id: job.id
+    })
+    onSavedJob();
+  }
 
   return (
     <div className='border-3 border-white/20 rounded-lg py-5 border-b-0  px-4 ' >
@@ -67,15 +66,15 @@ const JobCard = ({ job,
           </button>
         </Link>
         {!isMyJob &&
-        <button
-        onClick={handleSaveJob}
-        disabled={loadingSavedJob}
-        className='cursor-pointer ' >
-          {saved ? 
-          <Heart stroke='red' fill='red' /> : 
-          <Heart />
-        }
-        </button>
+          <button
+            onClick={handleSaveJob}
+            disabled={loadingSavedJob}
+            className='cursor-pointer ' >
+            {saved ?
+              <Heart stroke='red' fill='red' /> :
+              <Heart />
+            }
+          </button>
         }
       </div>
     </div>
