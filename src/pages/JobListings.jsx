@@ -68,7 +68,7 @@ const JobListings = () => {
 
       <form className='w-full mb-5 flex items-center gap-3  mt-15  ' onSubmit={(e) => handleSearch(e)} >
         <input type="text" name='search-query'
-          placeholder='search companies here ...'
+          placeholder='search jobs here ...'
           className='border-3 py-2 h-full rounded-sm px-4 text-md flex flex-1 border-white/20  ' />
         <button type='submit' className='border border-white/20 active:ring-1 bg-blue-500 text-white cursor-pointer px-5 rounded-sm py-2 ' >
           Search
@@ -104,8 +104,8 @@ const JobListings = () => {
             Filter by company
           </option>
           {
-            companies?.map(({ name , id }) => {
-              return <option key={name} value={id}>{name}</option>
+            companies?.map(({ name, id }) => {
+              return <option key={id} value={id}>{name}</option>
             })
           }
         </select>

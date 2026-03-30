@@ -32,7 +32,7 @@ const JobCard = ({ job,
       user_id: user.id,
       job_id: job.id
     })
-    onSavedJob();
+    onJobAction();
   }
 
   return (
@@ -49,7 +49,7 @@ const JobCard = ({ job,
       </div>
       <div className='flex justify-between my-2 ' >
         {
-          (job.company) && <img src={job.company.logo_url} className='h-6' alt="" />
+          (job.company) && <img src={job.company.logo_url} className='h-6' alt="" onError={(e) => { e.target.style.display = 'none' }} />
         }
         <div className='flex gap-2 items-center  ' >
           <MapPinIcon size={19} /> <span className='capitalize'>{job.location}</span>
@@ -60,7 +60,7 @@ const JobCard = ({ job,
         {job.description.substring(0, job.description.indexOf("."))}
       </div>
       <div className='flex justify-between gap-5 items-center ' >
-        <Link className='border rounded-xl border-amber-50 flex-1 flex bg-black/20 mt-3  ' to={"/google.com"} >
+        <Link className='border rounded-xl border-amber-50 flex-1 flex bg-black/20 mt-3  ' to={`/job/${job.id}`} >
           <button className='w-full my-2 cursor-pointer text-2xl text-center ' >
             More Details
           </button>

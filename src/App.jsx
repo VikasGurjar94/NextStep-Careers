@@ -8,6 +8,7 @@ import PostJob from './pages/PostJob'
 import Saved from './pages/Saved'
 import MyJobs from './pages/MyJobs'
 import ProtectedRoute from './components/ProtectedRoute'
+import Job from './pages/Job'
 
 // import JobPage from './pages/JobPage'
 // import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
@@ -23,6 +24,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Home />} /> 
             <Route path='/jobs' element={<ProtectedRoute><JobListings /></ProtectedRoute>} />
+            <Route path='/job/:id' element={<ProtectedRoute><Job /></ProtectedRoute>} />
             <Route path='/onboarding' element={<ProtectedRoute><Onboarding /></ProtectedRoute>} />
             <Route path='/saved-jobs' element={<ProtectedRoute><Saved /></ProtectedRoute> } />
             <Route path='/post-job' element={<ProtectedRoute><PostJob /></ProtectedRoute>} />
