@@ -62,16 +62,20 @@ const Header = () => {
               }}
             >
               <UserButton.MenuItems>
-                <UserButton.Link
-                  label="My Jobs"
-                  labelIcon={<BriefcaseBusiness size={15} />}
-                  href="/my-jobs"
-                />
-                <UserButton.Link
-                  label="Saved Jobs"
-                  labelIcon={<Heart size={15} />}
-                  href="/saved-jobs"
-                />
+                {user?.unsafeMetadata?.role === "recruiter" && (
+                  <UserButton.Link
+                    label="My Jobs"
+                    labelIcon={<BriefcaseBusiness size={15} />}
+                    href="/my-jobs"
+                  />
+                )}
+                {user?.unsafeMetadata?.role === "candidate" && (
+                  <UserButton.Link
+                    label="Saved Jobs"
+                    labelIcon={<Heart size={15} />}
+                    href="/saved-jobs"
+                  />
+                )}
                 <UserButton.Action label="manageAccount" />
               </UserButton.MenuItems>
             </UserButton>

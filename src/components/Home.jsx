@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useUser } from '@clerk/clerk-react'
 import Header from './Header'
 import ButtonMain from './ButtonMain'
 import Carousel from './Carousel'
 import Accordion from './accordion'
 const Home = () => {
+  const { user } = useUser();
+  const role = user?.unsafeMetadata?.role;
 
 
 
@@ -24,14 +27,17 @@ const Home = () => {
           </h2>
           <div className='flex mt-7 gap-10' >
 
-            <Link to='/jobs' >
-              <ButtonMain textContent="Find a Job" bgColor="#2b7fff" />
-            </Link>
+            {role !== 'recruiter' && (
+              <Link to='/jobs' >
+                <ButtonMain textContent="Find a Job" bgColor="#2b7fff" />
+              </Link>
+            )}
 
-            <Link to='/post-job' >
-              <ButtonMain textContent="Post a Job" bgColor="#fb2c36" />
-            </Link>
-
+            {role !== 'candidate' && (
+              <Link to='/post-job' >
+                <ButtonMain textContent="Post a Job" bgColor="#fb2c36" />
+              </Link>
+            )}
 
           </div>
         </section>
