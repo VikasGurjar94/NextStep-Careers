@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
-import Home from './components/home'
+import Home from './components/Home'
 import Onboarding from './pages/Onboarding'
 import JobListings from './pages/JobListings'
 import PostJob from './pages/PostJob'
