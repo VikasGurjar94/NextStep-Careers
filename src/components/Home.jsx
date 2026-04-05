@@ -4,7 +4,7 @@ import { useUser } from '@clerk/clerk-react'
 import Header from './Header'
 import ButtonMain from './ButtonMain'
 import Carousel from './Carousel'
-import Accordion from './accordion'
+import Accordion from './Accordion'
 const Home = () => {
   const { user } = useUser();
   const role = user?.unsafeMetadata?.role;
